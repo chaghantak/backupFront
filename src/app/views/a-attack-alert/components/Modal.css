@@ -1,0 +1,31 @@
+.button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 6px;
+    padding: 20px;
+  }
+  
+  .modal-background {
+    position: absolute;
+    z-index: 48;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(26, 24, 24, 0.86);
+  }
+  
+  .modal-card {
+    z-index: 49;
+    margin: 0 auto;
+    display: block;
+    margin-top: 250px;
+    width:50%;
+    height: 200px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1px;
+    overflow: auto;
+    
+  }
+ 

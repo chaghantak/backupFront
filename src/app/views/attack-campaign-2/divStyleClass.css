@@ -1,0 +1,39 @@
+.style1 {
+    border: 1px solid black;
+    height: 20vh;
+    display : flex;
+    justify-content: flex-start;
+    overflow:hidden;
+}
+.style2{
+    padding-top: 3px;
+    float: left;
+    width: 18vh;
+    white-space: pre-line !important;
+}
+.style3{
+    width: 22vh;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    white-space: pre-line;
+    z-index: 100;
+    position: relative;
+}
+.style4 {
+    border: 1px solid black;
+    Height: 18vh;
+    width: 23vh;
+    margin-top: 8px;
+    margin-right: 3vh;
+    overflow:hidden;
+}
+.paddingDiv {
+    width: 10px;
+}
+.imgDiv{
+    float: right;
+    padding-top: 5vh;
+    padding-left: 10px;
+    padding-right: 1vh;
+    min-width: 5vh;
+}

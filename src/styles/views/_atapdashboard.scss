@@ -1,0 +1,311 @@
+/* - - - - - - graphSection Box  - -- - - - */
+/* - - - - Circle Graph Css - - - - - */
+/* circleGraph */
+/* legend */
+/* circle tooltip */
+/*closeBtn*/
+text {
+   cursor: default;
+   fill: #fff;
+   font-size: 14px;
+   text-transform: capitalize;
+}
+#mapSection {
+   height: 100%;
+   width: 100%;
+   position: relative;
+}
+.node {
+   fill: #9e9eff;
+   stroke-width: 2px;
+   z-index: 49;
+}
+.cesium-viewer-bottom {
+   display: none;
+}
+.cesium-viewer-geocoderContainer {
+   display: none;
+}
+#container {
+   width: 100%;
+   overflow: hidden;
+}
+.link {
+   stroke: rgba(255, 158, 44, .5);
+   stroke-width: 2px;
+}
+.event.content {
+   position: absolute;
+   width: 800px;
+   font-size: 14px;
+   color: #9e9eff;
+   line-height: 20px;
+}
+#graphPane_circle {
+   overflow: auto;
+}
+.country {
+   &:hover {
+      stroke: #fff;
+      stroke-width: 1.5px;
+   }
+}
+.hidden {
+   display: none;
+}
+div.tooltip {
+   color: #222;
+   background: #fff;
+   padding: .5em;
+   text-shadow: #f5f5f5 0 1px 0;
+   border-radius: 2px;
+   box-shadow: 0px 0px 2px 0px #a6a6a6;
+   opacity: 0.9;
+   position: absolute;
+}
+.graticule {
+   fill: none;
+   stroke: #bbb;
+   stroke-width: .5px;
+   stroke-opacity: .5;
+}
+.equator {
+   stroke: #ccc;
+   stroke-width: 1px;
+}
+.box-radio-input {
+   input[type="radio"] {
+      display: none;
+      &:checked+span {
+         border: 1px solid #23a3a7;
+         background: #23a3a7;
+         color: #fff;
+      }
+   }
+   input[type="radio"]+span {
+      display: inline-block;
+      background: none;
+      border: 1px solid #dfdfdf;
+      padding: 0px 10px;
+      text-align: center;
+      height: 25px;
+      font-weight: 500;
+      cursor: pointer;
+   }
+}
+.graphSection {
+   position: absolute;
+   opacity: .85;
+   z-index: 5;
+   box-shadow: 0px 0px 3px 1px #080808;
+   border-radius: 2px;
+   background-color: #0000004f;
+   transition: .8s all;
+}
+.sectionHeader {
+   height: 45px;
+   background-color: #303233a1;
+   padding: 12px 16px 5px 16px;
+   overflow: hidden;
+}
+.statusSection {
+    width: 50%;
+    min-width: 800px;
+    height: 275px;
+    left: 10px;
+    top: 50%;
+    transform: translate(0%, 120%);
+   .closeBtn {
+      top: -32px;
+      padding: 0 20px;
+      right: 0px;
+      border-radius: 5px 5px 0px 0px;
+   }
+}
+.ratioSection {
+   width: 30%;
+   min-width: 560px;
+   height: 335px;
+   top: 10px;
+   left: 10px;
+   .closeBtn {
+      padding: 7px;
+      top: 0;
+      right: -26px;
+      border-radius: 0 5px 5px 0;
+   }
+}
+.rankingSection {
+   width: 30%;
+   min-width: 560px;
+   height: 300px;
+   bottom: 10px;
+   right: 10px;
+   .closeBtn {
+      padding: 7px;
+      top: 0px;
+      left: -26px;
+      border-radius: 5px 0px 0px 5px;
+   }
+}
+.intellSection {
+   width: 25%;
+   min-width: 465px;
+   height: 480px;
+   top: 50px;
+   right: 10px;
+   .closeBtn {
+      padding: 7px;
+      top: 0px;
+      left: -26px;
+      border-radius: 5px 0px 0px 5px;
+   }
+}
+#alertTap {
+   margin: 0 15px 15px 15px;
+   border: 1px solid;
+   overflow: hidden;
+}
+#campaignTap {
+   margin: 0 15px 15px 15px;
+   border: 1px solid;
+   overflow: hidden;
+}
+.circleGraph {
+   height: 100%;
+   width: 100%;
+   box-sizing: border-box;
+   padding: 10px;
+}
+.legend {
+   font-size: 14px;
+}
+rect {
+   stroke-width: 2;
+}
+rect.disabled {
+   fill: transparent !important;
+}
+.circleTooltip {
+   background: white;
+   box-shadow: 0 0 5px #999999;
+   color: black;
+   display: none;
+   font-size: 16px;
+   left: 130px;
+   padding: 10px;
+   position: absolute;
+   text-align: center;
+   top: 95px;
+   width: 120px;
+   z-index: 9999999999;
+   border: 1px solid;
+   border-radius: 5%;
+}
+.label {
+   font-weight: 450;
+   color: black;
+}
+.percent {
+   font-weight: 350;
+   color: red;
+}
+#scenarioGraph {
+   min-height: 100px;
+}
+.closeBtn {
+   position: absolute;
+   cursor: pointer;
+   opacity: .85;
+   box-shadow: 0px 0px 3px 1px #080808;
+   background-color: #303233a1;
+   transition: .8s all;
+   &:hover {
+      background-color: #1f1f1fa1;
+   }
+   i {
+      font-size: 30px;
+      color: white;
+      font-weight: normal;
+   }
+}
+.active {
+   li {
+      color: #28cbd6 !important;
+   }
+}
+#fullScreenBtn {
+   position: absolute;
+   top: 5px;
+   right: 80px;
+   z-index: 5;
+   .cesium-button {
+      height: 32px;
+      width: 45px;
+      line-height: 1.2;
+   }
+}
+#stopStart {
+   position: absolute;
+   top: 5px;
+   right: 130px;
+   z-index: 5;
+   .cesium-button {
+      height: 32px;
+      width: 45px;
+      display: flex;
+   }
+}
+#ipLevelFilter {
+   position: absolute;
+   top: 7px;
+   height: 32px;
+   right: 185px;
+   z-index: 5;
+   margin: 0px;
+   background: #303336;
+   border: 1px solid #444;
+   color: #edffff;
+   fill: #edffff;
+   border-radius: 4px;
+   padding: 5px 12px;
+   box-sizing: border-box;
+}
+.killchainInfo {
+   position: absolute;
+   padding: 10px;
+   right: 0px;
+   top: 0px;
+   opacity: .9;
+   justify-content: flex-end;
+   display: block;
+   align-items: center;
+   li {
+      margin: 0 5px;
+   }
+   b {
+      color: white;
+      font-size: 15px;
+      font-weight: normal;
+      vertical-align: middle;
+   }
+}
+.infoChain {
+   width: 25px;
+   height: 1px;
+   display: inline-block;
+   vertical-align: middle;
+}
+.real {
+   border: 1px solid #66bd78a8;
+}
+.predicted {
+   border: 1px dashed #cb2e3dbf;
+}
+#entity_info {
+   position: absolute;
+   display: none;
+   padding: 5px;
+   z-index: 49;
+   background: #252831;
+ }

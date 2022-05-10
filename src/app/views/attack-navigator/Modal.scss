@@ -1,0 +1,44 @@
+.modal__container{
+    width: 50%;
+    height: 50vh;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 50;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .modal{
+        width: 50%;
+        height: fit-content;
+        background-color: #fff;
+        // Modal 창 브라우저 가운데로 조정
+        position: absolute;
+        left: 10%;
+        top:10%;
+        transform: translate(-50%, -50%);
+        z-index:100;
+        padding: 10px;
+
+        .modal__button{
+            position: relative;
+            left: 50%;
+            margin: 10px;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    table{
+        border: 1px solid #444444;
+        border-collapse: collapse;
+        width: 80%;
+        height: fit-content;
+        margin: 10px;
+    }
+    th, tr, td{
+        border: 1px solid #444444;
+    }
+    img{
+        display: block; 
+        margin: 0px auto;
+    }
+}

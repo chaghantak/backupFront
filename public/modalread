@@ -1,0 +1,19 @@
+//modal
+// const handleModalClose = (e) => {
+//   setShow(false);
+// };
+
+// const handleModalOpen = () => {
+//   setShow(true);
+// };
+// handleModalOpen();
+{
+  /* <div hidden={!show}>
+<div className="modal-background">
+<div className="modal-card" style={{ overflow: "auto" }}>
+<button onClick={handleModalClose}>close</button>
+<SubMatrix id={subTec} />
+</div>
+</div>
+</div> */
+}
