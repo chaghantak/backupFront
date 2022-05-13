@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 function KillLog({ data }) {
+  console.log(data);
   const [item, setItem] = useState([]);
   useEffect(() => {
     Axios({
@@ -19,41 +20,38 @@ function KillLog({ data }) {
 
   return (
     <Container>
-      <table style={{borderCollapse: "collapse"}}>
-          <thead>
-              <tr>
-                  <Th colSpan={2}>Time Series</Th>
+      <table style={{ borderCollapse: "collapse" }}>
+        <tbody>
+         
+          {item.subgraph &&
+            item.subgraph.map((data) => (
+              <tr key={data._id}>
+                <Td>
+                  <span style={{ fontSize: "x-small" }}>
+                    {data.timestamp.$date.replace(/\T|\Z/g, " ")}
+                  </span>
+                <br/>
+                  <span>{data.rule_name}</span>
+                  <br />
+                  <span
+                    style={{ fontSize: "x-small" }}
+                  >{`<${data.mitre_attack_ttp}>`}</span>
+                </Td>
               </tr>
-          </thead>
-          <tbody>
-              <tr>
-                  <Th>RuleName</Th>
-                  <Th>Time</Th>
-              </tr>
-        {item.subgraph &&
-          item.subgraph.map((data) => (
-            <tr key={data._id}>
-              <Td> {data.rule_name}</Td>
-              <Td style={{borderLeft: "1px solid gray"}}>{data.timestamp.$date}</Td>
-            </tr>
-          ))}
-          </tbody>
+            ))}
+        </tbody>
       </table>
     </Container>
   );
 }
 
 export default KillLog;
-const Th = styled.th`
-border-bottom: 1px solid gray;
-
-`
 
 const Td = styled.td`
-border-bottom: 1px solid gray;
-font-size: small;
-
-`
+  text-align: left;
+  font-size: 12px;
+  padding: 20px 0 0 0;
+`;
 const Container = styled.div`
   overflow-y: scroll;
   ::-webkit-scrollbar {

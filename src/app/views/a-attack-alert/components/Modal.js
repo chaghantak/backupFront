@@ -115,7 +115,7 @@ function Modal({ data, click }) {
         <div style={{ display: "flex",height:"42vw",border: "1px solid gray" }}>
           <div
             style={{
-              width: "70%",
+              width: "80%",
               float: "left",
               backgroundColor: "#2C3845",
               color: "white",
@@ -125,11 +125,11 @@ function Modal({ data, click }) {
           </div>
           <div
             style={{
-              width: "30%",
+              width: "20%",
               float: "left",
               backgroundColor: "#2C3845",
               color: "white",
-              borderLeft:"1px solid gray"
+              
             }}
           >
            <KillLog data={data}/>
