@@ -29,9 +29,9 @@ function TacticTable({
         >
           <tr style={{height:"5vw" ,borderBottom: "1px solid gray"}} >
             <Th>
-              {tactic.name}
+              <Span>{tactic.name}
               <br />
-              techniques : {tactic.techniques.length}
+             techniques : {tactic.techniques.length}</Span>
             </Th>
           </tr>
 
@@ -78,4 +78,10 @@ const Th = styled.th`
  background-color:white;
   display: table-cell;
   color:#4f7cac;
+
   `
+const Span = styled.span`
+&:hover{
+    background-color: lightgray;
+  } 
+`

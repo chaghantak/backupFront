@@ -2,7 +2,7 @@ import React from "react";
 import Tree from "react-d3-tree";
 import orgChartJson from "./data/org-chart.json";
 import { useCenteredTree } from "./helpers";
-
+import './App.css'
 const containerStyles = {
   width: "100%",
   height: "100vh"
@@ -48,7 +48,7 @@ export default function App() {
     }
   }
   return (
-    <div style={{containerStyles,height:"640px",textAlign:"center"}} ref={containerRef}>
+    <div style={{containerStyles,height:"42vw",textAlign:"center"}} ref={containerRef}>
       <Tree
       nodeSvgShape={svgSquare}
         data={orgChartJson}

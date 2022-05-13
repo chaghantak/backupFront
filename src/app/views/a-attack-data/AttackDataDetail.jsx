@@ -233,8 +233,7 @@ export default function AttackDataDetail({data}) {
 
             <div className="footer">
                 <div className="footerChild2">
-                    <img src={tempImg} />
-                    <p>Techniques Graph</p>
+                    <p> match (n:TechniqueNode) where n.name contains “Camp{data.index}_” return n</p>
                 </div>
                 <div className="footerChild" style={{maxHeight: "30vh", maxWidth: "40vh"}}>
                 <Slider {...settings}>

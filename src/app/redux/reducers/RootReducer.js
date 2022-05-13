@@ -10,6 +10,7 @@ import GraphReducer from "./GraphReducer";
 import ChainReducer from "./ChainReducer";
 import NetworkReducer from "./NetworkReducer";
 import SnackBarReducer from "./SnackBarReducer";
+import DomainReducer from "./DomainReducer";
 
 const RootReducer = combineReducers({
   login: LoginReducer,
@@ -23,6 +24,7 @@ const RootReducer = combineReducers({
   chain: ChainReducer,
   network: NetworkReducer,
   snackbar: SnackBarReducer,
+  domain: DomainReducer
 });
 
 export default RootReducer;

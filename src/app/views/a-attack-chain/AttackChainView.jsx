@@ -56,6 +56,7 @@ function AttackChainView() {
       <div style={{ height: "84vh", width: "100%", float: "left" }}>
         <Graph host={send} />
       </div>
+     
     </div>
   );
 }

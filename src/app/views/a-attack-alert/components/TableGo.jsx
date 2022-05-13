@@ -6,6 +6,7 @@ import ModalTtp from "./ModalTtp";
 import TacticTable from "./TacticTable";
 import "./Modal.css";
 import Modal from "./Modal";
+import Button from "./Button";
 function TableGo({ item }) {
   const [send, setSend] = useState("");
   const [ttpData, setTtpData] = useState([]);
@@ -53,7 +54,7 @@ function TableGo({ item }) {
 
   const backOn = (data) => {
     setHide(data);
-    console.log(hide)
+    
   };
   useEffect(() => {
     setLoading((current) => !current);
@@ -77,12 +78,17 @@ function TableGo({ item }) {
         <>
           <div hidden={!modal}>
             <div className="modal-background">
-              <div className="modal-card" style={{ overflow: "auto" }}>
+             <div>
+            <Button handleModalClose={handleModalClose}/>
+            </div>
+              <Container className="modal-card" >
                 <table
                   style={{
                     width: "100%",
                     borderCollapse: "collapse",
-                    backgroundColor: "#9c88ff",
+                    backgroundColor: "#5BB9B8",
+                    position: "sticky",
+                    top: "0",
                   }}
                 >
                   <tbody>
@@ -114,12 +120,13 @@ function TableGo({ item }) {
                     </tr>
                   </tbody>
                 </table>
+                
+              
+             
                 <ModalTtp data={ttpData} modalClick={modalClick}  backOn={backOn}
                 hide={hide} />
-              </div>
-              <div style={{ position: "absolute", right: "25%" }}>
-                <button onClick={() => handleModalClose()}>close</button>
-              </div>
+              </Container>
+              
             </div>
           </div>
 
@@ -150,3 +157,9 @@ const Table = styled.table`
   display: flex;
 
 `;
+const Container = styled.div`
+  overflow-y: scroll;
+  ::-webkit-scrollbar{
+    display : none;
+  }
+`

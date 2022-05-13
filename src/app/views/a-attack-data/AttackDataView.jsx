@@ -10,17 +10,14 @@ import Detail from "./AttackDataDetail";
 import "../attackStyle.css";
 import { BASE_URL } from "../api";
 
-const Table = styled.table`
-  border: 1px solid black;
-  border-collapse: collapse;
-  width: 100%;
-`;
-const Th = styled.th`
-  border: 1px solid black;
-`;
-const Td = styled.td`
-  border: 1px solid black;
-  text-align: center;
+import Paper from '@material-ui/core/Paper' 
+
+import st from 'styled-components'; 
+
+const TableContainer = st(Paper)`
+max-height : 31vh; 
+width : 100%; 
+overflow:auto; 
 `;
 
 function AttackDataView() {
@@ -29,7 +26,25 @@ function AttackDataView() {
   const [name, setName] = useState("");
   const [country, setCountry] = useState("");
   const [year, setYear] = useState("");
-  const [select, setSelect] = useState([])
+  const [select, setSelect] = useState([]);
+  const [sortyear, setSortyear] = useState(false);
+  const [sortgroup, setSortgroup] = useState(false);
+  const [sortcountry, setSortcountry] = useState(false);
+  const [sortrefresh, setSortrefresh] = useState(false);
+
+  const yearsort = () => {
+    setSortyear((current) => !current);
+    setSortrefresh((current) => !current);
+  };
+  const groupsort = () => {
+    setSortgroup((current) => !current);
+    setSortrefresh((current) => !current);
+  };
+  const countrysort = () => {
+    setSortcountry((current) => !current);
+    setSortrefresh((current) => !current);
+  };
+
   const is = true
   const onClick = (info) => {
     setItem(info)
@@ -53,11 +68,15 @@ function AttackDataView() {
     Axios({
       method: "POST",
       url: `${BASE_URL}/campaign/campaign-list-join`,
-      data: {},
+      data: {
+        group: sortgroup,
+        country: sortcountry,
+        year: sortyear
+      },
     }).then(({ data }) => {
       setData(data.items);
     });
-  }, []);
+  }, [sortrefresh]);
 
   return (
       <div className="allMargin">
@@ -91,38 +110,45 @@ function AttackDataView() {
                   onChange={(e) => yearSpace(e)}
               />
             </div>
-            <div className="footerChild tableScoll hei23">
-              <Table
-                    className="MainTable "
-                    style={{ tableLayout: "fixed" }}
-              >
-                <thead>
-                          <tr>
-                            <Th>AttackGroup</Th>
-                            <Th>Country</Th>
-                            <Th>Year</Th>
-                          </tr>
-                </thead>
-              {data.map((info) => {
+            <div className="footerChild tableScoll hei31">
+              <div className="" >
+                <table className="MainTable fixed  ">
+                    <tr>
+                      <td align="center">Attack Group</td><button onClick={groupsort} style={{
+                                                                                              transform: "translate(20px,0%)",
+                                                                                            }}>▼</button>
+                      <td align="center">Country</td><button onClick={countrysort} style={{
+                                                                                          transform: "translate(20px,0%)",
+                                                                                        }}>▼</button>
+                      <td align="center">Year</td><button onClick={yearsort} style={{
+                                                                                      transform: "translate(20px,0%)",
+                                                                                    }}>▼</button>
+                    </tr>
+                </table>
+              </div>
+            {data.map((info) => {
                 if (
                   info.group.toLowerCase().includes(name.toLowerCase()) &&
                   info.year.toLowerCase().includes(year.toLowerCase()) &&
                   info.country.toLowerCase().includes(country.toLowerCase())
                   ){
                   return (
-                    <tbody className="MainTable fixed  " style={
-                      select === info ? {background: "#9bdfff"} : {background: "#ffffff"}
-                    } onClick={() => onClick(info)}>
-                      <tr key={info.group} >
-                        <Td className="Mtt">{info.group}</Td>
-                        <Td className="Mtt">{info.country}</Td>
-                        <Td className="Mtt">{info.year}</Td>
-                      </tr>
-                    </tbody>
+                      <div className="">
+                        <table className="MainTable fixed  " style={
+                          select === info ? {background: "#9bdfff"} : {background: "#ffffff"}
+                        } onClick={() => onClick(info) }>
+                          <tr key={info.group} >
+                            <td className="Mtt"> {info.group}</td>
+                            <td className="Mtt" title={info.country}>
+                              {info.country}
+                            </td>
+                            <td className="Mtt">{info.year}</td>
+                          </tr>
+                        </table>
+                      </div>
                   )
                 }
               })}
-              </Table>
             </div>
           </div>
           <div className="footerChild">

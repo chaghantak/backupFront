@@ -56,10 +56,12 @@ function Matrix() {
               disabled={disabled}
             />
           
-            <div className="" style={{ overflow: "auto", height: "89vh" }}>
+            <div className="" style={{ overflow: "hidden",
+    height: "86.8vh" }}>
               <div style={{ width: "100%", height: "77vh",border: "1px solid lightgray" ,overflow:"auto"}}>
                 <TableGo item={bag} />
               </div>
+      
             </div>
         
           </div>

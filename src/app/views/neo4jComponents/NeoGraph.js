@@ -17,7 +17,7 @@ const NeoGraph = (props) => {
 
   const visRef = useRef();
   const neoId = id.id.id;
-  console.log(neoId);
+ 
 
   const cyphers = [
     //  `match (p2)-[b*]->(p3) WHERE p3.id="113417c7d463627c02c913ffe6692fbe3a7ffeebb89d9511feff508095ffda94ixDxin8BIE-ttn6W1OiV" return *`,

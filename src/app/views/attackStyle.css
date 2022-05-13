@@ -125,8 +125,8 @@
 .hei24 {
   height: 26vh;
 }
-.hei23 {
-  height: 23vh;
+.hei32 {
+  height: 32vh;
 }
 .hei17 {
   height: 16.8vh;
@@ -205,6 +205,28 @@
   box-shadow: 0 0 4px 0 black;
   border-radius: 1px;
   z-index: 200;
+}
+
+.tooltip {
+  display: inline-block;
+  color: black;
+  font-weight: bold;
+}
+
+.tooltip-text {
+  display: none;
+  position: absolute;
+  max-width: 200px;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 0.8em;
+  color: black;
+  background: skyblue;
+}
+
+.tooltip:hover .tooltip-text {
+  display: block;
 }
 
 @keyframes progressbar {

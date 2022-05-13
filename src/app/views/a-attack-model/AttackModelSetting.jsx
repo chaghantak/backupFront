@@ -49,7 +49,9 @@ function AttackModelSetting(props) {
         <label>학습 타입</label>
         <br />
         <select>
-          <option>최종 목표</option>
+          <option>Rcatt</option>
+          <option>Tram</option>
+          <option>Pestudio</option>
         </select>
         <br />
 

@@ -1,5 +1,5 @@
 import React from "react";
-
+import styled from "styled-components";
 function ModalTtp({ data, modalClick, hide, backOn }) {
   return (
     <>
@@ -22,13 +22,16 @@ function ModalTtp({ data, modalClick, hide, backOn }) {
                         border: "black solid 1px",
                         display: "flex",
                         width: "100%",
+                        borderCollapse: "collapse"
                       }
                     : {
-                        backgroundColor: "white",
+                        backgroundColor: "#2C3845",
                         cursor: "pointer",
-                        border: "black solid 1px",
+                       
                         display: "flex",
                         width: "100%",
+                        color: "white",
+                        borderCollapse: "collapse"
                       }
                 }
                 onMouseOver={() => {
@@ -38,33 +41,9 @@ function ModalTtp({ data, modalClick, hide, backOn }) {
                   backOn(null);
                 }}
               >
-                <td
-                  style={{
-                    border: "black solid 1px",
-                    width: "100%",
-                    display: "flex",
-                  }}
-                >
-                  {data.timestamp}
-                </td>
-                <td
-                  style={{
-                    border: "black solid 1px",
-                    width: "100%",
-                    display: "flex",
-                  }}
-                >
-                  {data.name}
-                </td>
-                <td
-                  style={{
-                    border: "black solid 1px",
-                    width: "100%",
-                    display: "flex",
-                  }}
-                >
-                  호스트:{data.ip}
-                </td>
+                <Td>{data.timestamp}</Td>
+                <Td>{data.name}</Td>
+                <Td>호스트:{data.ip}</Td>
               </tr>
             </tbody>
           </table>
@@ -74,3 +53,10 @@ function ModalTtp({ data, modalClick, hide, backOn }) {
 }
 
 export default ModalTtp;
+
+const Td = styled.td`
+  border: gray solid 1px;
+  width: 100%;
+  display: flex;
+  border-collapse: collapse;
+`;

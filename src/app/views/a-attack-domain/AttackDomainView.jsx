@@ -101,7 +101,7 @@ function AttackDomain() {
                           </span> */}
                             </Td>
                             <Td>
-                              <input type="checkbox" checked="checked"/>
+                              <input type="checkbox" defaultChecked={true}/>
                             </Td>
                           </tr>
                         </tbody>

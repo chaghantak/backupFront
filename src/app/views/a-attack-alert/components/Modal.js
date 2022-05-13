@@ -3,7 +3,9 @@ import { createPortal } from "react-dom";
 import App from "./App";
 import DetailMatrix from "./DetailMatrix";
 import NeoMatrix from "./NeoMatrix";
-
+import "./Buttons.css";
+import styled from "styled-components";
+import KillLog from "./KillLog";
 function Modal({ data, click }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [selector, setSelector] = useState("상세정보");
@@ -14,40 +16,48 @@ function Modal({ data, click }) {
   const tabContArr = [
     {
       tabTitle: (
-        <span
-          style={
-            selector === "상세정보"
-              ? {
-                  color: "blue",
-                  float: "left",
-                  marginLeft: "10px",
-                  cursor: "pointer",
-                }
-              : {
-                  color: "black",
-                  float: "left",
-                  marginLeft: "10px",
-                  cursor: "pointer",
-                }
-          }
-          className={activeIndex === 0 ? "is-active" : ""}
-          onClick={() => {
-            tabClickHandler(0);
-            setSelector("상세정보");
-          }}
-        >
-          {" "}
-          상세정보{" "}
-        </span>
+        <div style={{ float: "left" }}>
+          {selector === "상세정보" ? (
+            <Span
+              className="bn40"
+              style={{
+                padding: "4px 15px ",
+              }}
+              onClick={() => {
+                tabClickHandler(0);
+                setSelector("상세정보");
+              }}
+            >
+              Detail
+            </Span>
+          ) : (
+            <span
+              style={{
+                color: "white",
+                float: "left",
+                marginLeft: "10px",
+                cursor: "pointer",
+                fontSize: "18px",
+                padding: "5px",
+              }}
+              onClick={() => {
+                tabClickHandler(0);
+                setSelector("상세정보");
+              }}
+            >
+              Detail
+            </span>
+          )}
+        </div>
       ),
       tabCont: (
         <div style={{ display: "flex" }}>
-         
-          
           <div
             style={{
               width: "100%",
               float: "left",
+              backgroundColor: "#2C3845",
+              color: "white",
             }}
           >
             <DetailMatrix id={data} />
@@ -56,6 +66,8 @@ function Modal({ data, click }) {
             style={{
               width: "100%",
               float: "left",
+              backgroundColor: "#2C3845",
+              color: "white",
             }}
           >
             <NeoMatrix id={data} />
@@ -65,52 +77,62 @@ function Modal({ data, click }) {
     },
     {
       tabTitle: (
-        <span
-          style={
-            selector === "킬체인"
-              ? {
-                  color: "blue",
-                  float: "left",
-                  marginLeft: "10px",
-                  cursor: "pointer",
-                }
-              : {
-                  color: "black",
-                  float: "left",
-                  marginLeft: "10px",
-                  cursor: "pointer",
-                }
-          }
-          className={activeIndex === 1 ? "is-active" : ""}
-          onClick={() => {
-            tabClickHandler(1);
-            setSelector("킬체인");
-          }}
-        >
-          {" "}
-          킬체인 분석{" "}
-        </span>
+        <div style={{ float: "left" }}>
+          {selector === "킬체인" ? (
+            <Span
+              className="bn40"
+              style={{
+                padding: "4px 20px ",
+              }}
+              onClick={() => {
+                tabClickHandler(1);
+                setSelector("킬체인");
+              }}
+            >
+              Kill Chain
+            </Span>
+          ) : (
+            <span
+              style={{
+                color: "white",
+                float: "left",
+                marginLeft: "10px",
+                cursor: "pointer",
+                fontSize: "18px",
+                padding: "5px 15px 0 0",
+              }}
+              onClick={() => {
+                tabClickHandler(1);
+                setSelector("킬체인");
+              }}
+            >
+              Kill Chain
+            </span>
+          )}
+        </div>
       ),
       tabCont: (
-        <div style={{ zIndex:"50",display: "flex", borderBottom: "1px solid black",height:"37.55vw"  }}>
+        <div style={{ display: "flex",height:"42vw",border: "1px solid gray" }}>
           <div
             style={{
-              float: "left",
-             borderRight: "black solid 1px",
               width: "70%",
-              height:"37.55vw",
+              float: "left",
+              backgroundColor: "#2C3845",
+              color: "white",
             }}
           >
             <App />
           </div>
           <div
             style={{
-              float: "left",
               width: "30%",
-              height:"37.55vw",
+              float: "left",
+              backgroundColor: "#2C3845",
+              color: "white",
+              borderLeft:"1px solid gray"
             }}
           >
-            blank
+           <KillLog data={data}/>
           </div>
         </div>
       ),
@@ -127,8 +149,8 @@ function Modal({ data, click }) {
         left: 100,
         width: "100%",
         height: "100%",
-        zIndex:"50",
-        marginLeft: "2%"
+        zIndex: "50",
+        marginLeft: "2%",
       }}
     >
       <div
@@ -136,36 +158,49 @@ function Modal({ data, click }) {
           width: "80%",
           height: "80%",
           textAlign: "center",
-          marginTop:"2%",
-          background: "white",
+          marginTop: "2%",
+          background: "#5BB9B8",
           fontSize: 20,
         }}
       >
-        <div>
-          <div className="tabs is-boxed">
-            {tabContArr.map((section, index) => (
-              <span key={index}>
-             {section.tabTitle}
-              </span>
-            ))}
-            <div style={{ float: "right" }}>
-              {/* <button onClick={()=>window.open(`${ATTACK_NAVI_URL}${id.id}`,`_blank`)}>Click</button> */}
-              <button
-                onClick={() =>
-                  window.open(
-                    `https://mitre-attack.github.io/attack-navigator/`
-                  )
-                }
-              >
-                Click
-              </button>
-              <button onClick={click}>Close</button>
-            </div>
-          </div>
-          <br />
-          <div style={{ borderTop: "1px solid black" }}>
-            {tabContArr[activeIndex].tabCont}
-          </div>
+        <div className="tabs is-boxed" style={{ display: "flow-root" }}>
+          {tabContArr.map((section, index) => (
+            <span key={index}>{section.tabTitle}</span>
+          ))}
+
+          {/* <button onClick={()=>window.open(`${ATTACK_NAVI_URL}${id.id}`,`_blank`)}>Click</button> */}
+          <span
+            style={{
+              float: "left",
+              padding: "2px 5px 0px 0px",
+              color: "white",
+              cursor: "pointer",
+            }}
+            onClick={() =>
+              window.open(`https://mitre-attack.github.io/attack-navigator/`)
+            }
+          >
+            {`Mitre att&ck`}
+          </span>
+          <span
+            onClick={() => click()}
+            style={{
+              float: "right",
+              padding: "2px 15px 0px 0px",
+              color: "white",
+              cursor: "pointer",
+            }}
+          >
+            닫기
+          </span>
+        </div>
+
+        <div style={{ borderTop: "1px solid black" }}>
+          {tabContArr[activeIndex].tabCont}
+          {/* <span style={{backgroundColor:"#5BB9B8"}}>#5BB9B8</span>
+            <span style={{backgroundColor:"#54a1a0"}}>54a1a0</span>
+            <span style={{backgroundColor:"#2C3845"}}>2C3845</span>
+            <span style={{backgroundColor:"#BD2A4E"}}>BD2A4E</span> */}
         </div>
       </div>
     </div>,
@@ -174,3 +209,5 @@ function Modal({ data, click }) {
 }
 
 export default Modal;
+
+const Span = styled.span``;

@@ -1,0 +1,20 @@
+.rd3t-g {
+  transform: translate(913px, 400px) scale(0.7, 0.7) !important;
+}
+
+.rd3t-leaf-node {
+  cursor: pointer;
+  fill: transparent;
+  stroke: white !important;
+  stroke-width: 1;
+}
+.rd3t-node {
+  cursor: pointer;
+  fill: gray;
+  stroke: white !important;
+  stroke-width: 2;
+}
+.rd3t-link {
+  fill: none;
+  stroke: white !important;
+}

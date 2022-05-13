@@ -15,15 +15,14 @@ function Specialist({ data }) {
   }, [data]);
 
   return (
-    <>
-    {loading? arr.map((data, idx) => (
-        <div key={idx} style={{textAlign:"center",display:"flex"}}>
-          <span >{data}</span>
-          <input type="checkbox"/>
-        </div>
-      )):"데이터 불러오는중.."}
-     
-    </>
+      <>
+        {loading? arr.map((data, idx) => (
+            <div key={idx} style={{textAlign:"center",display:"flex"}}>
+              <input type="checkbox" value={data}/>
+              <span >{data}</span>
+            </div>
+        )):"데이터 불러오는중.."}
+      </>
   );
 }
 

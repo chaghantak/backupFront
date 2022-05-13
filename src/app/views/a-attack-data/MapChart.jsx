@@ -9,7 +9,7 @@ const MyResponsiveChoroplethCanvas = ({ data, max }) => (
   <ResponsiveChoroplethCanvas
       data={data}
       features={countries.features}
-      margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
+      margin={{ top: 80, right: 0, bottom: 0, left: 0 }}
       colors="YlOrRd"
       domain={[ 0, Number(max) ]}
       unknownColor="#666666"
@@ -26,10 +26,10 @@ const MyResponsiveChoroplethCanvas = ({ data, max }) => (
               anchor: 'bottom-left',
               direction: 'column',
               justify: true,
-              translateX: 20,
-              translateY: -120,
+              translateX: 5,
+              translateY: -90,
               itemsSpacing: 0,
-              itemWidth: 70,
+              itemWidth: 90,
               itemHeight: 18,
               itemDirection: 'left-to-right',
               itemOpacity: 0.85,
@@ -76,7 +76,7 @@ export default function App() {
   }, [])
 
   return (
-    <div className="footerChild" style={{ width: 630, height: 502 }}>
+    <div className="footerChild" style={{ width: 630, height: 423 }}>
       <MyResponsiveChoroplethCanvas data={data} max={max} />
     </div>
   );

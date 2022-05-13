@@ -73,34 +73,37 @@ export default function DetailMatrix({ id }) {
   return (
     <>
       {loading ? (
-        <div
+        <Container
           style={{
-            height: "37.56vw",
-            overflow: "auto",
-            borderRight: "1px solid black",
-            borderBottom: "1px solid black",
-
+            height: "42vw",
+            borderRight: "1px solid gray",
+            borderBottom: "1px solid gray",
             borderCollapse: "collapse",
           }}
         >
-          <div
-            style={{
-              borderBottom: "1px solid black",
-              borderRight: "1px solid black",
-            }}
-          >
-            단위상세경보
-          </div>
           <table
             style={{
               width: "100%",
               borderCollapse: "collapse",
+              height: "42vw",
             }}
           >
+            <thead style={{ borderBottom: "1px solid gray" }}>
+              <tr
+                style={{
+                  backgroundColor: "#2C3845",
+                  position: "sticky",
+                  top: "0",
+                }}
+              >
+                <td colSpan={2} style={{ borderLeft: "1px solid gray" }}>
+                  단위상세경보
+                </td>
+              </tr>
+            </thead>
             <tbody>
               <Tr>
-                <th style={{ borderRight: "1px solid black" }}></th>
-                <th style={{ backgroundColor: "skyblue" }}>Event</th>
+                <th colSpan={2}>Event</th>
               </Tr>
 
               {itemEvent.map((data, idx) => (
@@ -109,8 +112,7 @@ export default function DetailMatrix({ id }) {
               {itemHost.length === 1 ? null : (
                 <>
                   <Tr>
-                    <th style={{ borderRight: "1px solid black" }}></th>
-                    <th style={{ backgroundColor: "skyblue" }}>Host</th>
+                    <th colSpan={2}>Host</th>
                   </Tr>
                   {itemHost.map((data, idx) => (
                     <DetailTable data={data} key={idx} />
@@ -122,8 +124,7 @@ export default function DetailMatrix({ id }) {
               {itemProcess.length === 1 ? null : (
                 <>
                   <Tr>
-                    <th style={{ borderRight: "1px solid black" }}></th>
-                    <th style={{ backgroundColor: "skyblue" }}>Process</th>
+                    <th colSpan={2}>Process</th>
                   </Tr>
                   {itemProcess.map((data, idx) => (
                     <DetailTable data={data} key={idx} />
@@ -133,8 +134,7 @@ export default function DetailMatrix({ id }) {
               {itemFile.length === 1 ? null : (
                 <>
                   <Tr>
-                    <th style={{ borderRight: "1px solid black" }}></th>
-                    <th style={{ backgroundColor: "skyblue" }}>File</th>
+                    <th colSpan={2}>File</th>
                   </Tr>
                   {itemFile.map((data, idx) => (
                     <DetailTable data={data} key={idx} />
@@ -144,8 +144,7 @@ export default function DetailMatrix({ id }) {
               {itemDestination.length === 1 ? null : (
                 <>
                   <Tr>
-                    <th style={{ borderRight: "1px solid black" }}></th>
-                    <th style={{ backgroundColor: "skyblue" }}>Destination</th>
+                    <th colSpan={2}>Destination</th>
                   </Tr>
                   {itemDestination.map((data, idx) => (
                     <DetailTable data={data} key={idx} />
@@ -155,8 +154,7 @@ export default function DetailMatrix({ id }) {
               {itemSource.length === 1 ? null : (
                 <>
                   <Tr>
-                    <th style={{ borderRight: "1px solid black" }}></th>
-                    <th style={{ backgroundColor: "skyblue" }}>Source</th>
+                    <th colSpan={2}>Source</th>
                   </Tr>
                   {itemSource.map((data, idx) => (
                     <DetailTable data={data} key={idx} />
@@ -166,8 +164,7 @@ export default function DetailMatrix({ id }) {
               {itemRegistry.length === 1 ? null : (
                 <>
                   <Tr>
-                    <th style={{ borderRight: "1px solid black" }}></th>
-                    <th style={{ backgroundColor: "skyblue" }}>Registry</th>
+                    <th colSpan={2}>Registry</th>
                   </Tr>
                   {itemRegistry.map((data, idx) => (
                     <DetailTable data={data} key={idx} />
@@ -177,8 +174,7 @@ export default function DetailMatrix({ id }) {
               {itemFileshare.length === 1 ? null : (
                 <>
                   <Tr>
-                    <th style={{ borderRight: "1px solid black" }}></th>
-                    <th style={{ backgroundColor: "skyblue" }}>Fileshare</th>
+                    <th colSpan={2}>FileShare</th>
                   </Tr>
                   {itemFileshare.map((data, idx) => (
                     <DetailTable data={data} key={idx} />
@@ -188,8 +184,7 @@ export default function DetailMatrix({ id }) {
               {itemUser.length === 1 ? null : (
                 <>
                   <Tr>
-                    <th style={{ borderRight: "1px solid black" }}></th>
-                    <th style={{ backgroundColor: "skyblue" }}>Source</th>
+                    <th colSpan={2}>User</th>
                   </Tr>
                   {itemSource.map((data, idx) => (
                     <DetailTable data={data} key={idx} />
@@ -198,14 +193,23 @@ export default function DetailMatrix({ id }) {
               )}
             </tbody>
           </table>
-        </div>
+        </Container>
       ) : null}
     </>
   );
 }
 
 const Tr = styled.tr`
-  border: 1px solid black;
+  border-top: 1px solid gray;
+  border-left: 1px solid gray;
+
   border-collapse: collapse;
   text-align: center;
+  background-color: #2c3845;
+`;
+const Container = styled.div`
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;

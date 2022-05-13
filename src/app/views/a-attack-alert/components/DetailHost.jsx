@@ -5,9 +5,14 @@ function DetailHost({ data }) {
   const replaceData = atomData.replace(/\"/g, "");
   const atomData1 = replaceData.split(",");
   return (
-    <tr style={{ borderCollapse: "collapse", border: "1px solid black", textAlign:"center" }}>
+    <tr style={{ borderCollapse: "collapse", textAlign: "center" }}>
       <td
-        style={{ borderCollapse: "collapse", borderRight: "1px solid black" }}
+        style={{
+          borderCollapse: "collapse",
+          borderTop: "1px solid gray",
+          borderLeft: "1px solid gray",
+          height: "10%",
+        }}
       >
         {data[0]}
       </td>
@@ -16,10 +21,10 @@ function DetailHost({ data }) {
           style={{
             width: "100%",
             display: "flex",
-            borderBottom: "1px solid black",
             borderCollapse: "collapse",
-           justifyContent:"center"
-            
+            justifyContent: "center",
+            borderTop: "1px solid gray",
+            borderLeft: "1px solid gray",
           }}
           key={idx}
         >

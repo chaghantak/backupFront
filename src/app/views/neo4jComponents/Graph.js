@@ -6,18 +6,18 @@ const Graph = (id) => {
    
     return (
         
-        <div className="App" style={{ fontFamily: "Quicksand", }}>
+        <td className="App" >
             <NeoGraph
                 id={id}
                 width={"100%"}
-                height={36.55}
+                height={42}
                 containerId={"viz"}
                 neo4jUri={NEO4J_CHAIN_URL}
                 neo4jUser={NEO4J_USER}
                 neo4jPassword={NEO4J_PASSWORD}
-                backgroundColor={"black"}
+                backgroundColor={"#2C3845"}
             />
-        </div>
+        </td>
     );
 };
 

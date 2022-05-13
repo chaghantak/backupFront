@@ -16,9 +16,13 @@ const NeoGraph = (props) => {
   } = props;
   const hostId = host;
   const visRef = useRef();
-  const cyphers = [
-    ` MATCH path = (n1)-[r*1..2]->(m) WHERE m.host_ip=${hostId} RETURN * limit 100`,
-  ];
+  const cyphers = [];
+
+  if (hostId === '') {
+    cyphers.push(`MATCH path = (n1)-[r*1..2]->(m) RETURN *`)
+  } else {
+    cyphers.push(`MATCH path = (n1)-[r*1..2]->(m) WHERE m.host_ip=${hostId} RETURN *`)
+  }
   useEffect(() => {
     const config = {
       container_id: visRef.current.id,
@@ -148,15 +152,15 @@ const NeoGraph = (props) => {
   }, [neo4jUri, neo4jUser, neo4jPassword, hostId]);
 
   return (
-    <div
-      id={containerId}
-      ref={visRef}
-      style={{
-        width: `${width}px`,
-        height: `${height}px`,
-        backgroundColor: `${backgroundColor}`,
-      }}
-    />
+      <div
+          id={containerId}
+          ref={visRef}
+          style={{
+            width: `${width}px`,
+            height: `${height}px`,
+            backgroundColor: `${backgroundColor}`,
+          }}
+      />
   );
 };
 
@@ -184,11 +188,11 @@ const ResponsiveNeoGraph = (props) => {
   const side = Math.max(sizes.width, sizes.height) / 2;
   const neoGraphProps = { ...props, width: side, height: side };
   return (
-    <div style={{ position: "relative" }}>
-      {resizeListener}
+      <div style={{ position: "relative" }}>
+        {resizeListener}
 
-      <NeoGraph {...neoGraphProps} />
-    </div>
+        <NeoGraph {...neoGraphProps} />
+      </div>
   );
 };
 
